@@ -12,8 +12,10 @@ def decrypt(file):
 def walk(dir):
     for name in os.listdir(dir):
         path = os.path.join(dir, name)
-        if os.path.isfile(path):
-            try: decrypt(path)
-            except: walk(path)
+        if name != "Windows":
+            if os.path.isfile(path):
+                decrypt(path)
+            else:
+                walk(path)
             
 walk("Test")
